@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_authentication
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  liquibase:
+    enabled: true
+    change-log: db/changelog/main-changelog.xml
+
+token:
+  secret: ${TOKEN_SECRET}
+  validityTimeAccess: ${ACCESS}
+  validityTimeRefresh: ${REFRESH}
