@@ -56,3 +56,33 @@ create table if not exists refresh_token(
     revoked boolean not null default false,
     constraint user_id_refresh_fk foreign key (user_id) references users(id)
 );
+
+--changeset Mihail:1.0.8
+insert into users(id, login, password, email) values
+    (uuid_generate_v4(),
+     'Alex',
+     '$2a$12$NU1fkdZdowa1rNwopie7D.7jj.zrL0T3JLgVpor3S1kB6DkiAQL82',
+     'alex@mail.ru'
+    );
+
+--changeset Mihail:1.0.9
+insert into users_roles (user_id, role_id) values
+    (
+        (select id from users where login = 'Alex'),
+        (select id from roles where name = 'GUEST')
+    );
+
+--changeset Mihail:1.0.10
+insert into users(id, login, password, email) values
+    (uuid_generate_v4(),
+     'Kate',
+     '$2a$12$NU1fkdZdowa1rNwopie7D.7jj.zrL0T3JLgVpor3S1kB6DkiAQL82',
+     'kate@mail.ru'
+    );
+
+--changeset Mihail:1.0.11
+insert into users_roles (user_id, role_id) values
+    (
+        (select id from users where login = 'Kate'),
+        (select id from roles where name = 'PREMIUM_USER')
+    );

@@ -14,6 +14,6 @@ spring:
     change-log: db/changelog/main-changelog.xml
 
 token:
-  secret: ${TOKEN_SECRET}
-  validityTimeAccess: ${ACCESS}
-  validityTimeRefresh: ${REFRESH}
+  secret: k9j8h7g6f5d4s3a2z1q0w9e8r7t6y5u4i3o2pyftfytfiyfftf
+  validityTimeAccess: 10000
+  validityTimeRefresh: 172800000

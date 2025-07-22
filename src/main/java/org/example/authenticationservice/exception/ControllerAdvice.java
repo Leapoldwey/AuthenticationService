@@ -14,7 +14,7 @@ public class ControllerAdvice {
     @ExceptionHandler(UserAlreadyExistsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseOnError handleUserAlreadyExistsException(UserAlreadyExistsException e) {
-        return new ResponseOnError(LocalDateTime.now(), HttpStatus.NOT_FOUND, e.getMessage());
+        return new ResponseOnError(LocalDateTime.now(), HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(UserNotFoundException.class)
